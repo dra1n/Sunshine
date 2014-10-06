@@ -79,13 +79,13 @@ public class MainActivity extends ActionBarActivity {
             List<String> weekForecast = new ArrayList<String>(
                     Arrays.asList(forecastArray));
 
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+            ArrayAdapter<String> mForecastAdapter = new ArrayAdapter<String>(
                     getActivity(),
                     R.layout.list_item_forecast,
                     R.id.list_item_forecast_textview,
                     weekForecast);
 
-            lv.setAdapter(arrayAdapter);
+            lv.setAdapter(mForecastAdapter);
 
             return rootView;
         }

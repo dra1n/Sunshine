@@ -11,4 +11,14 @@
     <string name="pref_location_key" translatable="false">location</string>
     <string name="pref_location_default" translatable="false">Dnepropetrovsk</string>
 
+    <string name="metric">Celsius</string>
+    <string name="imperial">Farengheit</string>
+
+    <string name="metric_value">celsius</string>
+    <string name="imperial_value">farengheit</string>
+
+    <string name="pref_units_label">Temperature Units</string>
+    <string name="pref_units_key" translatable="false">units</string>
+    <string name="pref_units_default" translatable="false">@string/metric_value</string>
+
 </resources>

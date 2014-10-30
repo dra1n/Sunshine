@@ -127,37 +127,37 @@ public class TestDb extends AndroidTestCase{
                     null  // sort order
             );
 
-            if (!weatherCursor.moveToFirst()) {
+            if (weatherCursor.moveToFirst()) {
+                assertEquals(weatherCursor.getInt(
+                        weatherCursor.getColumnIndex(WeatherEntry.COLUMN_LOC_KEY)), locationRowId);
+                assertEquals(weatherCursor.getString(
+                        weatherCursor.getColumnIndex(WeatherEntry.COLUMN_DATETEXT)), "20141205");
+                assertEquals(weatherCursor.getDouble(
+                        weatherCursor.getColumnIndex(WeatherEntry.COLUMN_DEGREES)), 1.1);
+                assertEquals(weatherCursor.getDouble(
+                        weatherCursor.getColumnIndex(WeatherEntry.COLUMN_HUMIDITY)), 1.2);
+                assertEquals(weatherCursor.getDouble(
+                        weatherCursor.getColumnIndex(WeatherEntry.COLUMN_PRESSURE)), 1.3);
+                assertEquals(weatherCursor.getInt(
+                        weatherCursor.getColumnIndex(WeatherEntry.COLUMN_MAX_TEMP)), 75);
+                assertEquals(weatherCursor.getInt(
+                        weatherCursor.getColumnIndex(WeatherEntry.COLUMN_MIN_TEMP)), 65);
+                assertEquals(weatherCursor.getString(
+                        weatherCursor.getColumnIndex(WeatherEntry.COLUMN_SHORT_DESC)), "Asteroids");
+                assertEquals(weatherCursor.getDouble(
+                        weatherCursor.getColumnIndex(WeatherEntry.COLUMN_WIND_SPEED)), 5.5);
+                assertEquals(weatherCursor.getInt(
+                        weatherCursor.getColumnIndex(WeatherEntry.COLUMN_WEATHER_ID)), 321);
+            } else {
                 fail("No weather data returned!");
             }
 
-            assertEquals(weatherCursor.getInt(
-                    weatherCursor.getColumnIndex(WeatherEntry.COLUMN_LOC_KEY)), locationRowId);
-            assertEquals(weatherCursor.getString(
-                    weatherCursor.getColumnIndex(WeatherEntry.COLUMN_DATETEXT)), "20141205");
-            assertEquals(weatherCursor.getDouble(
-                    weatherCursor.getColumnIndex(WeatherEntry.COLUMN_DEGREES)), 1.1);
-            assertEquals(weatherCursor.getDouble(
-                    weatherCursor.getColumnIndex(WeatherEntry.COLUMN_HUMIDITY)), 1.2);
-            assertEquals(weatherCursor.getDouble(
-                    weatherCursor.getColumnIndex(WeatherEntry.COLUMN_PRESSURE)), 1.3);
-            assertEquals(weatherCursor.getInt(
-                    weatherCursor.getColumnIndex(WeatherEntry.COLUMN_MAX_TEMP)), 75);
-            assertEquals(weatherCursor.getInt(
-                    weatherCursor.getColumnIndex(WeatherEntry.COLUMN_MIN_TEMP)), 65);
-            assertEquals(weatherCursor.getString(
-                    weatherCursor.getColumnIndex(WeatherEntry.COLUMN_SHORT_DESC)), "Asteroids");
-            assertEquals(weatherCursor.getDouble(
-                    weatherCursor.getColumnIndex(WeatherEntry.COLUMN_WIND_SPEED)), 5.5);
-            assertEquals(weatherCursor.getInt(
-                    weatherCursor.getColumnIndex(WeatherEntry.COLUMN_WEATHER_ID)), 321);
-
             weatherCursor.close();
-            dbHelper.close();
         } else {
             // That's weird, it works on MY machine...
             fail("No values returned :(");
         }
-
+        cursor.close();
+        dbHelper.close();
     }
 }

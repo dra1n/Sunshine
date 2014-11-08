@@ -17,11 +17,11 @@
     <string name="metric">Celsius</string>
     <string name="imperial">Farengheit</string>
 
-    <string name="metric_value">celsius</string>
-    <string name="imperial_value">farengheit</string>
+    <string name="pref_units_metric">celsius</string>
+    <string name="pref_units_imperial">farengheit</string>
 
     <string name="pref_units_label">Temperature Units</string>
     <string name="pref_units_key" translatable="false">units</string>
-    <string name="pref_units_default" translatable="false">@string/metric_value</string>
+    <string name="pref_units_default" translatable="false">@string/pref_units_metric</string>
 
 </resources>

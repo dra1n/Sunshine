@@ -8,8 +8,8 @@
 
     <array
         name="pref_units_values">
-        <item>@string/metric_value</item>
-        <item>@string/imperial_value</item>
+        <item>@string/pref_units_metric</item>
+        <item>@string/pref_units_imperial</item>
     </array>
 
 </resources>
